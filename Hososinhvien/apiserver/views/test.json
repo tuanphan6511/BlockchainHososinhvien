@@ -1,0 +1,99 @@
+{
+"mssv":"DTH185475",
+"data": [
+          {
+            
+            "hoten": "Nguyễn Văn A",
+            "ngaysinh": "04/02/2000",
+            "email": "nva_19th1@student.agu.edu.vn",
+            "cmnd": "352557777",
+            "sdt": "0976636511",
+            "gioitinh": "Nam",
+            "noisinh": "An Giang",
+            "diachi": "Long Xuyên, An Giang",
+            "ngayvaodoan": "01/01/2022",
+            "noivaodoan": "An Giang",
+            "ngayvaodang": "",
+            "noivaodang": "",
+
+            "dien": "Nghèo, Gia đình chính sách",
+            "tongiao": "Không",
+            "dantoc": "Kinh",
+            "lop": "DH19TH1"
+          }
+        ],
+        "thanhtich": [
+          {
+            "thoigian": "01/01/2022",
+            "thanhtich": "Thành tích 1"
+          },
+          {
+            "thoigian": "02/02/2022",
+            "thanhtich": "Thàn tích 2"
+          }
+        ],
+        "diemhoctap": [
+          {
+            "he10": 8,
+            "he4": 3.4
+          }
+        ],
+        "diemrenluyen": [
+          {
+            "mamhoc": "2018-2019",
+            "hk1": "80",
+            "hk2": "80"
+          },
+          {
+            "mamhoc": "2019-2020",
+            "hk1": "90",
+            "hk2": "90"
+          }
+        ],
+        "giadinh": [
+          {
+            "quanhe": "Cha",
+            "hoten": "Phan Ngọc A",
+            "ngaysinh": "01/01/1970",
+            "diachi": "An Giang"
+          },
+          {
+            "quanhe": "Cha",
+            "hoten": "Phan Ngọc A",
+            "ngaysinh": "01/01/1970",
+            "diachi": "An Giang"
+          },
+        ],
+        "vanbanchungchi": [
+          {
+            "ten": "A2",
+            "ngaycap": "01/01/2022",
+            "xeploai": ""
+          },
+          {
+            "ten": "Tin học",
+            "ngaycap": "01/01/2022",
+            "xeploai": "Tốt"
+          }
+        ],
+        "quatrinhhoctap": [
+          {
+            "truong": "Trường THPT Nguyễn Bỉnh Khiêm",
+            "thoigian": "2015-2018",
+            "nganh": "",
+            "bang": "Tốt nghiệp THPT"
+          },
+          {
+            "truong": "THCS An Châu",
+            "thoigian": "2012-2015",
+            "nganh": "",
+            "bang": "Tốt nghiệp CS"
+          },
+          {
+            "truong": "Tiểu học",
+            "thoigian": "2008-2012",
+            "nganh": "",
+            "bang": "Tốt nghiệp TH"
+          }
+        ]
+      }
