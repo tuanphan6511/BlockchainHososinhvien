@@ -344,8 +344,9 @@ function timeConverter(UNIX_timestamp) {
   ];
   var year = a.getFullYear();
   var month = months[a.getMonth()];
-  var date = a.getDate() + 1;
-  var hour = a.getHours() < 10 ? "0" + a.getHours() : a.getHours() - 17;
+  var date = a.getDate();
+  var hour = a.getHours() < 10 ? "0" + a.getHours() : a.getHours() + 7;
+  hour > 24 ? ("0" + (a.getHours() - 24), date + 1) : hour;
   var min = a.getMinutes() < 10 ? "0" + a.getMinutes() : a.getMinutes();
   var sec = a.getSeconds() < 10 ? "0" + a.getSeconds() : a.getSeconds();
 
