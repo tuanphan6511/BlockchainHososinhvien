@@ -1,0 +1,456 @@
+<%- include('include/top.ejs') %>
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+    <h1 class="logo me-auto"> <img src="/img/fabric.png" class="img-fluid animated" alt=""></h1>
+    <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active text-danger" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto text-danger" href="#why-us">API</a></li>
+          <li><a class="nav-link   scrollto text-danger" href="#about">About</a></li>
+          <li><a class="nav-link scrollto text-danger" href="#services">Services</a></li>
+          
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  
+
+  <main id="main">
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us section-bg">
+      <div class="container-fluid" data-aos="fade-up">
+        
+        <div class="row">
+          <div class="col-lg-12 d-flex flex-column justify-content-center align-items-stretch order-2 order-lg-1">
+
+            <div class="content">
+              <h3><strong>Thông Tin Sinh Viên </strong></h3> 
+            </div>
+            <div class="container-fluid">
+                <table class="table table-striped table-dark">
+                    <thead>
+                      <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">MSSV</th>
+                        <th scope="col">Dữ liệu</th>
+                        <th scope="col">Học tập</th>
+                        <th scope="col">Quá trình học tập</th>
+                        <th scope="col">Rèn luyện</th>
+                        <th scope="col">Txid</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% let stt=1 %>
+                      <% for(let i=0; i < dataUser.length; i++) { %>
+                      <tr>
+                        <th scope="row"><%= stt++ %></th>
+                        <td><%= dataUser[i].Key %></td>
+                        
+                        <td style="width: 40%;">
+                          <b>Họ tên: </b><%= dataUser[i].Record["data"][0]["hoten"] %><br>
+                          <b >Lớp: </b> <%= dataUser[i].Record["data"][0]["lop"] %><br>
+                          <b >Địa chỉ: </b> <%= dataUser[i].Record["data"][0]["diachi"] %><br>
+                          <b >Email: </b> <%= dataUser[i].Record["data"][0]["email"] %>
+                        </td>
+                        <td style="width: 10%;">
+                          <b>Hệ 10: </b><%= dataUser[i].Record["diemhoctap"][0]["he10"] %><br>
+                          <b >Hệ 4: </b> <%= dataUser[i].Record["diemhoctap"][0]["he4"] %><br>
+                          
+                        </td>
+                        <td style="width: 20%;">
+                          <% for(let j=0; j < dataUser[i].Record["quatrinhhoctap"].length;j++) { %>
+                          <%= dataUser[i].Record["quatrinhhoctap"][j]["bang"] %><br>
+                          
+                          <% } %>
+                        </td>
+                        <td style="width: 20%;">
+                          <% for(let j=0; j < dataUser[i].Record["diemrenluyen"].length;j++) { %>
+                          <%= dataUser[i].Record["diemrenluyen"][j]["namhoc"] %> <br> HK1 <%= dataUser[i].Record["diemrenluyen"][j]["hk1"] %> HK2 <%= dataUser[i].Record["diemrenluyen"][j]["hk2"] %><br>
+                          
+                          <% } %>
+                        </td>
+                        <td style="width: 10%;">
+                         
+                          <%= dataUser[i].Record["txid"] %>
+                        </td>
+                      </tr>
+                      <% } %>
+                      
+                    </tbody>
+                  </table>
+            </div>
+            
+          </div>
+         
+        </div>
+        <div class="row">
+            <div class="col-lg-9 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+  
+              <div class="content">
+                <h3><strong>Hisrory</strong></h3> 
+              </div>
+  
+              <div class="accordion-list">
+                <ul>
+                  <li>
+                    <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-21">
+                      <span style="font-weight: bold;color:yellowgreen; ">01 GET</span>  <br><span style="float:left;">Kiểm tra thông tin lịch sử với key</span><br>
+                        <i class="bx bx-chevron-down icon-show"></i>
+                        <i class="bx bx-chevron-up icon-close"></i>                     
+                      </a>
+                    <div id="accordion-list-21" class="collapse show" data-bs-parent=".accordion-list">
+                        
+                          <div class="row">
+                            <a class="btn btn-primary col-4" href="/api/student/change" role="button" style="margin-left:20pt ;height: 25pt;">/api/student/add</a>
+                            
+                          </div>
+                          <p>Thay đổi 1 hoặc tất cả thông tin 1 sinh viên bao gồm các thông tin như data, thanhtich, diemhoctap, diemrenluyen,...</p>
+                        
+                      
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 align-items-stretch order-1 order-lg-2 img" style='background-image: url("/img/skills.png");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
+          </div>
+      </div>
+    </section><!-- End Why Us Section -->
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>About</h2>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-12">
+            <p>
+              Hyperledger Fabric, một dự án mã nguồn mở từ Linux Foundation, là khuôn khổ Blockchain mô-đun và là tiêu chuẩn thực tế cho các nền tảng Blockchain doanh nghiệp. Được dự định làm nền tảng để phát triển các ứng dụng cấp doanh nghiệp và giải pháp công nghiệp, kiến trúc mô-đun mở sử dụng các thành phần plug-and-play để đáp ứng nhiều trường hợp sử dụng. 
+            </p>
+            <p>
+              Lợi ích của Hyperledger Fabric:
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> Permissioned network (Kiểm soát mạng)</li>
+              <li><i class="ri-check-double-line"></i> Confidential transactions (Giao dịch bí mật)</li>
+              <li><i class="ri-check-double-line"></i> Pluggable architecture (Kiến trúc có thể xếp gọn)</li>
+              <li><i class="ri-check-double-line"></i> Easy to get started (Dễ dàng bắt đầu)</li>
+            </ul>
+              <a href="#" class="btn-learn-more">Learn More</a>
+          </div>
+        
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>API Server</h2>
+          <p>Build on System Hososinhvien</p>
+        </div>
+        <div class="row">
+          <div class="col-xl-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4><a href="">Lorem Ipsum</a></h4>
+              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+            </div>
+          </div>
+          <div class="col-xl-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4><a href="">Lorem Ipsum</a></h4>
+              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                <h4><a href="">Lorem Ipsum</a></h4>
+                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              </div>
+            </div>
+  
+          </div>
+          <div class="row">
+            <div class="col-xl-12 col-md-12 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                <h4><a href="">Lorem Ipsum</a></h4>
+                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              </div>
+            </div>
+  
+          </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Cta Section ======= -->
+    
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+          <li data-filter="*" class="filter-active">All</li>
+          <li data-filter=".filter-app">App</li>
+          <li data-filter=".filter-card">Card</li>
+          <li data-filter=".filter-web">Web</li>
+        </ul>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="/img/portfolio/portfolio-1.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-img"><img src="/img/portfolio/portfolio-2.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Web 3</h4>
+              <p>Web</p>
+              <a href="/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="/img/portfolio/portfolio-3.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>App 2</h4>
+              <p>App</p>
+              <a href="/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-img"><img src="/img/portfolio/portfolio-4.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Card 2</h4>
+              <p>Card</p>
+              <a href="/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-img"><img src="/img/portfolio/portfolio-5.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Web 2</h4>
+              <p>Web</p>
+              <a href="/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="/img/portfolio/portfolio-6.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>App 3</h4>
+              <p>App</p>
+              <a href="/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-img"><img src="/img/portfolio/portfolio-7.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Card 1</h4>
+              <p>Card</p>
+              <a href="/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-img"><img src="/img/portfolio/portfolio-8.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Card 3</h4>
+              <p>Card</p>
+              <a href="/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-img"><img src="/img/portfolio/portfolio-9.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Web 3</h4>
+              <p>Web</p>
+              <a href="/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+   
+
+   
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <h4>Join Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Arsha</h3>
+            <p>
+              A108 Adam Street <br>
+              New York, NY 535022<br>
+              United States <br><br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/vendor/aos/aos.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="/vendor/php-email-form/validate.js"></script>
+  <script>
+    $(function () {
+  $('.example-popover').popover({
+    container: 'body'
+  })
+})
+  </script>
+
+  <!-- Template Main JS File -->
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>
